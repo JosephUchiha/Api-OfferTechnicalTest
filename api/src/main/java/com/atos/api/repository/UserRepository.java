@@ -1,0 +1,16 @@
+package com.atos.api.repository;
+
+import java.time.LocalDate;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.atos.api.model.User;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
+
+	Optional<User> findByUserNameAndBirthDateAndCountry(String userName, LocalDate birthDate, String country);
+	
+}
